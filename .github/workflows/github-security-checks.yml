@@ -1,0 +1,24 @@
+name: SAST Scan
+run-name: Push from ${{ github.actor }} initiated a Security Scan 🚀
+permissions:
+  contents: write
+jobs:
+  sast-scan:
+    runs-on: ubuntu-latest
+    container: avarteqgmbh/bearer-osv-scan
+    steps:
+      - name: Checkout repo inside CI runner
+        uses: actions/checkout@v4
+      - name: Setup results file
+        run: |
+          touch ./scan_results/bearer.out.json 
+          git config --global --add safe.directory '*'
+      - name: SAST Scan
+        working-directory: .
+        run: bearer scan . ./ci/bearer.yml
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with: 
+          author_name: scanner-bot
+          author_email: scanner@anynines.com
+          message: '[bot] Add SAST scan results'
