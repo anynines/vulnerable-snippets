@@ -1,0 +1,8 @@
+{
+  "ae903051b59300db2d5afbd80fc94fd3_5": {
+    "author": "Mish Bear",
+    "comment": "Ignore this finding",
+    "false_positive": true,
+    "ignored_at": "2024-12-03T10:01:25Z"
+  }
+}
