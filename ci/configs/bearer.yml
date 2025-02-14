@@ -21,8 +21,9 @@ scan:
     hide_progress_bar: false
     internal-domains: []
     parallel: 0
-    quiet: true
+    quiet: false
     scanner:
         - secrets
         - sast
     skip-test: true
+    skip-path: ["go/vendor/*"]
