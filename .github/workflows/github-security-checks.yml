@@ -38,7 +38,7 @@ jobs:
           git config --global --add safe.directory '*'
       - name: OSV Scan
         working-directory: .
-        run: osv-scanner scan --format json --output scan_results/osv.out.json -r . --no-ignore
+        run: osv-scanner --format json --output scan_results/osv.out.json -r .
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with: 
