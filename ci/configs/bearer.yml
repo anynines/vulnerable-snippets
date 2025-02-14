@@ -4,9 +4,9 @@ report:
     fail-on-severity: critical,high,medium,low
     format: json
     no-color: false
-    output: ""
+    output: "./scan_results/bearer.out.json"
     report: security
-    severity: critical,high,medium,low,warning
+    severity: critical,high
 rule:
     disable-default-rules: false
     only-rule: []
@@ -24,4 +24,5 @@ scan:
     quiet: true
     scanner:
         - secrets
+        - sast
     skip-test: true
