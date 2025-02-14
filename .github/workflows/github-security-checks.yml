@@ -13,7 +13,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup results file
         run: |
-          touch ./scan_results/bearer.out.json 
+          mkdir -p ./scan_results
+          touch ./scan_results/bearer.out.json
           git config --global --add safe.directory '*'
       - name: SAST Scan
         working-directory: .
