@@ -25,3 +25,23 @@ jobs:
           author_name: scanner-bot
           author_email: scanner@anynines.com
           message: '[bot] Add SAST scan results'
+  osv-scan:
+    runs-on: ubuntu-latest
+    container: avarteqgmbh/bearer-osv-scan
+    steps:
+      - name: Checkout repo inside CI runner
+        uses: actions/checkout@v4
+      - name: Setup results file
+        run: |
+          mkdir -p ./scan_results
+          touch ./scan_results/osv.out.json
+          git config --global --add safe.directory '*'
+      - name: OSV Scan
+        working-directory: .
+        run: osv-scanner scan source --format json --output scan_results/osv.out.json .
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with: 
+          author_name: scanner-bot
+          author_email: scanner@anynines.com
+          message: '[bot] Add OSV scan results'
