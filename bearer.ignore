@@ -1,0 +1,8 @@
+{
+  "ef93f4eb1f2649185435bedba026d531_0": {
+    "author": "PaulSzymanski",
+    "comment": "This is a password in a test mock data.",
+    "false_positive": true,
+    "ignored_at": "2025-02-14T13:42:03Z"
+  }
+}
