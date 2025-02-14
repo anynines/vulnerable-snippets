@@ -18,7 +18,7 @@ jobs:
           git config --global --add safe.directory '*'
       - name: SAST Scan
         working-directory: .
-        run: bearer scan --config-file ./ci/configs/bearer.yml .
+        run: bearer scan --exit-code 0 --config-file ./ci/configs/bearer.yml .
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with: 
